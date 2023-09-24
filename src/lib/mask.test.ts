@@ -157,7 +157,6 @@ describe('mask', () => {
 		it('[0]', () => {
 			expect(
 				rleDecode([0], (filled: boolean) => {
-					console.log('filled', filled);
 					return [filled ? 1 : 0];
 				})
 			).toEqual(new Uint8ClampedArray([]));
@@ -165,7 +164,6 @@ describe('mask', () => {
 		it('[1]', () => {
 			expect(
 				rleDecode([1], (filled: boolean) => {
-					console.log('filled', filled);
 					return [filled ? 1 : 0];
 				})
 			).toEqual(new Uint8ClampedArray([0]));
@@ -174,7 +172,6 @@ describe('mask', () => {
 		it('[0, 1]', () => {
 			expect(
 				rleDecode([0, 1], (filled: boolean) => {
-					console.log('filled', filled);
 					return [filled ? 1 : 0];
 				})
 			).toEqual(new Uint8ClampedArray([1]));
@@ -183,7 +180,6 @@ describe('mask', () => {
 		it('[1, 1]', () => {
 			expect(
 				rleDecode([1, 1], (filled: boolean) => {
-					console.log('filled', filled);
 					return [filled ? 1 : 0];
 				})
 			).toEqual(new Uint8ClampedArray([0, 1]));
@@ -192,7 +188,6 @@ describe('mask', () => {
 		it('[1, 1, 1]', () => {
 			expect(
 				rleDecode([1, 1, 1], (filled: boolean) => {
-					console.log('filled', filled);
 					return [filled ? 1 : 0];
 				})
 			).toEqual(new Uint8ClampedArray([0, 1, 0]));
@@ -201,7 +196,6 @@ describe('mask', () => {
 		it('[2, 2, 2]', () => {
 			expect(
 				rleDecode([2, 2, 2], (filled: boolean) => {
-					console.log('filled', filled);
 					return [filled ? 1 : 0];
 				})
 			).toEqual(new Uint8ClampedArray([0, 0, 1, 1, 0, 0]));

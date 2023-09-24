@@ -32,10 +32,8 @@ const rleDecode = (rle: Array<number>, makePixel: (filled: boolean) => Array<num
 	let filled = false;
 
 	for (const count of rle) {
-		console.log('count', count);
 		for (let idx = 0; idx < count; idx++) {
 			const pixel = makePixel(filled);
-			console.log(`${idx}, pixel value`, pixel);
 			result.push(...pixel);
 		}
 		filled = !filled;
