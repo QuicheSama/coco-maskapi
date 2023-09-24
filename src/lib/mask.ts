@@ -85,6 +85,9 @@ const rleFromString = (encodedString: string) => {
 			if (!more && char & 0x10) count |= -1 << (5 * ith);
 		}
 
+        if(counts.length > 2) {
+            count += counts[counts.length - 2];
+        }
 		counts.push(count);
 	}
 
