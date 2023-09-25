@@ -1,38 +1,32 @@
-# create-svelte
+# coco-maskapi
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+A TypeScript port of Coco API's `maskApi.c` ([reference](https://github.com/cocodataset/cocoapi/blob/8c9bcc3cf640524c4c20a9c40e89cb6a2f2fa0e9/common/maskApi.c)).
 
-## Creating a project
+| Function      | Status      |
+| ------------- | ----------- |
+| `rleEncode`   | 🧑‍🏭 WIP      |
+| `rleDecode`   | 🧑‍🏭 WIP      |
+| `rleMerge`    | 🗒️ TODO     |
+| `rleArea`     | 🗒️ TODO     |
+| `rleNMS`      | 🗒️ TODO (?) |
+| `bbIou`       | 🗒️ TODO     |
+| `bbNms`       | 🗒️ TODO (?) |
+| `rleToBbox`   | 🗒️ TODO     |
+| `rleFrBbox`   | 🗒️ TODO     |
+| `uintCompare` | 🗒️ TODO     |
+| `rleFrPoly`   | 🗒️ TODO     |
+| `rleToString` | 🧑‍🏭 WIP      |
+| `rleFrString` | 🧑‍🏭 WIP      |
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Context
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Coco API uses a modified version of [Run Length Encoding (RLE)](https://en.wikipedia.org/wiki/Run-length_encoding) to efficiently store [image masks](https://en.wikipedia.org/wiki/Photomask). RLE data is further compressed via a modified version of [LEB128](https://en.wikipedia.org/wiki/LEB128) (which could likely be named `LEB32`).
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+`coco-maskapi` aims to bring this flavor of mask compression/encoding to web browsers, favoring Canvas [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) as the data source and target.
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Development
 
 ```bash
-npm run build
+pnpm install
+pnpm dev
 ```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
