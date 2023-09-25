@@ -32,7 +32,7 @@
 		<textarea readonly>{sampleRleString}</textarea>
 		<textarea readonly>{reencoded}</textarea>
 	</div>
-	<canvas class="output" height={1000} width={1000} bind:this={outputCanvas} />
+	<canvas class="output" height={640} width={529} bind:this={outputCanvas} />
 </div>
 
 <style>
