@@ -45,8 +45,12 @@ const rleToString = (rle: Array<number>) => {
 	let result = '';
 	for (let idx = 0; idx < rle.length; idx++) {
 		let count = rle[idx];
-		let more = true;
 
+		if (idx > 2) {
+			count -= rle[idx - 2];
+		}
+
+		let more = true;
 		while (more) {
 			let charCode = count & 0x1f;
 			count >>= 5;
