@@ -9,7 +9,7 @@ const transpose = (imageData: Uint8ClampedArray, currentShape: Shape, depth = 4)
 	for (let x = 0; x < currentShape[1]; x++) {
 		for (let y = 0; y < currentShape[0]; y++) {
 			const srcIndex = (y * currentShape[1] + x) * depth;
-			for(let i = 0; i < depth; i++) {
+			for (let i = 0; i < depth; i++) {
 				transposed[destIndex + i] = imageData[srcIndex + i]; // R
 			}
 			destIndex += 4;
