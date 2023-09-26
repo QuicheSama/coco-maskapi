@@ -7,9 +7,10 @@ import type { Shape } from '$lib/transpose';
 const encode = (
 	imageData: Uint8ClampedArray,
 	[height, width]: Shape,
-	fillCheck: (pixelData: Uint8ClampedArray) => boolean
+	fillCheck: (pixelData: Uint8ClampedArray) => boolean,
+	depth = 4
 ) => {
-	const rle = rleEncode(transpose(imageData, [height, width]), fillCheck);
+	const rle = rleEncode(transpose(imageData, [height, width]), fillCheck, depth);
 	return rleToString(rle);
 };
 

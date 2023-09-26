@@ -17,6 +17,12 @@ const rleEncode = (
 				counts[counts.length - 1] += 1;
 				return;
 			}
+
+			if(idx === 0 && mask[idx]) {
+				counts.push(1);
+				return;
+			}
+			
 			if (mask[idx - 1] === mask[idx]) {
 				counts[counts.length - 1] += 1;
 			} else {
