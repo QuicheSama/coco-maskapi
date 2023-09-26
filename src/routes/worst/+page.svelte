@@ -37,7 +37,7 @@
 		filled ? [255, 255, 255, 255] : [0, 0, 0, 255]
 	);
 
-    $: decodedMask = outputCanvasContext ? new ImageData(decoded, width) : null;
+	$: decodedMask = outputCanvasContext ? new ImageData(decoded, width) : null;
 	$: if (decodedMask && outputCanvasContext) {
 		outputCanvasContext.clearRect(0, 0, outputCanvas.width, outputCanvas.height);
 		outputCanvasContext.putImageData(decodedMask, 0, 0);
@@ -47,16 +47,12 @@
 <div class="space">
 	<div>
 		<div class="output">
-			<span
-				><strong>height:</strong>
-				<input type="number" class="height-input" bind:value={height} /></span
-			>
+			<strong>height:</strong>
+			<input type="number" class="height-input" bind:value={height} />
 		</div>
 		<div class="output">
-			<span
-				><strong>width:</strong>
-				<input type="number" class="width-input" bind:value={width} /></span
-			>
+			<strong>width:</strong>
+			<input type="number" class="width-input" bind:value={width} />
 		</div>
 		<div class="output">
 			<div><strong>pixels:</strong> {width * height}</div>
