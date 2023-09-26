@@ -28,54 +28,53 @@
 </script>
 
 <div class="container" class:success={reencoded === sampleRleString}>
-    <div>
-        <div><strong>decoded output</strong></div>
-        <canvas class="output" height={640} width={529} bind:this={outputCanvas} />
-    </div>
-	<div class="text-container">
-        <div class="text">
-            <div><strong>encoded source</strong></div>
-            <textarea readonly>{sampleRleString}</textarea>
-        </div>
-		<div class="text">
-            <strong>re-encoded output</strong>
-            <textarea readonly>{reencoded}</textarea>
-        </div>
+	<div>
+		<div><strong>decoded output</strong></div>
+		<canvas class="output" height={640} width={529} bind:this={outputCanvas} />
 	</div>
-    
+	<div class="text-container">
+		<div class="text">
+			<div><strong>encoded source</strong></div>
+			<textarea readonly>{sampleRleString}</textarea>
+		</div>
+		<div class="text">
+			<strong>re-encoded output</strong>
+			<textarea readonly>{reencoded}</textarea>
+		</div>
+	</div>
 </div>
 
 <style>
 	.text-container {
 		display: flex;
 		flex-direction: row;
-        flex-grow: 1;
+		flex-grow: 1;
 	}
-    .text {
-        display: flex;
-        flex-direction: column;
-        min-width: 25em;
-        padding: 1em;
-    }
+	.text {
+		display: flex;
+		flex-direction: column;
+		min-width: 25em;
+		padding: 1em;
+	}
 
-    .output {
-        position:relative;
-    }
+	.output {
+		position: relative;
+	}
 
 	textarea {
 		width: 100%;
-        height: 100%;
+		height: 100%;
 	}
 
-    .container.success {
-        background-color: #11ff55;
-    }
+	.container.success {
+		background-color: #11ff55;
+	}
 	.container {
 		display: flex;
 		flex-direction: row;
 		height: 100%;
 		width: 100%;
-        padding: 1em;
-        background-color: red;
+		padding: 1em;
+		background-color: red;
 	}
 </style>
