@@ -4,7 +4,7 @@ A TypeScript port of Coco API's `maskApi.c` ([reference](https://github.com/coco
 
 ## Context
 
-Coco API uses a modified version of [Run Length Encoding (RLE)](https://en.wikipedia.org/wiki/Run-length_encoding) to efficiently store [image masks](https://en.wikipedia.org/wiki/Photomask). RLE data is further compressed via a modified version of [LEB128](https://en.wikipedia.org/wiki/LEB128) (which could likely be named `LEB32`).
+Coco API uses a modified version of [Run Length Encoding (RLE)](https://en.wikipedia.org/wiki/Run-length_encoding) to efficiently store [image masks](https://en.wikipedia.org/wiki/Photomask). RLE data is further compressed via a modified version of [LEB128](https://en.wikipedia.org/wiki/LEB128) (which can be inuitively considered `LEB32`).
 
 `coco-maskapi` aims to bring this flavor of mask compression/encoding to web browsers, favoring Canvas [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) as the data source and target.
 

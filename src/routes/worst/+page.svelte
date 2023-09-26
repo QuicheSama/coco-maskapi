@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { encode, decode } from '$lib';
 
-    let outputCanvas: HTMLCanvasElement;
+	let outputCanvas: HTMLCanvasElement;
 	let outputCanvasContext: CanvasRenderingContext2D | null;
 	let height = 101;
 	let width = 101;
@@ -33,49 +33,52 @@
 	$: encoded = mask
 		? encode(mask.data, [height, width], (pixelData: Uint8ClampedArray) => pixelData[0] > 0)
 		: '';
-	$: console.log('encoded.length', encoded.length);
-	$: console.log('pixels encoded', height * width);
-
 	$: decoded = decode(encoded, [height, width], (filled) =>
 		filled ? [255, 255, 255, 255] : [0, 0, 0, 255]
 	);
-	$: console.log('decoded', decoded);
-	$: decodedMask = outputCanvasContext ? new ImageData(decoded, width) : null;
+
+    $: decodedMask = outputCanvasContext ? new ImageData(decoded, width) : null;
 	$: if (decodedMask && outputCanvasContext) {
 		outputCanvasContext.clearRect(0, 0, outputCanvas.width, outputCanvas.height);
 		outputCanvasContext.putImageData(decodedMask, 0, 0);
 	}
 </script>
 
-<div class='space'>
+<div class="space">
 	<div>
-        <div class="output">
-            <span><strong>height:</strong> <input type="number" class="height-input" bind:value={height} /></span>
-        </div>
-        <div class="output">
-            <span><strong>width:</strong> <input type="number" class="width-input" bind:value={width} /></span>
-        </div>
-        <div class="output">
-            <div><strong>pixels:</strong> {width * height}</div>
-        </div>
-        <div class="output">
-            <div><strong>length:</strong> {encoded.length}</div>
-        </div>
+		<div class="output">
+			<span
+				><strong>height:</strong>
+				<input type="number" class="height-input" bind:value={height} /></span
+			>
+		</div>
+		<div class="output">
+			<span
+				><strong>width:</strong>
+				<input type="number" class="width-input" bind:value={width} /></span
+			>
+		</div>
+		<div class="output">
+			<div><strong>pixels:</strong> {width * height}</div>
+		</div>
+		<div class="output">
+			<div><strong>length:</strong> {encoded.length}</div>
+		</div>
 	</div>
-    <div>
-        <div class="output">
-            <canvas width={1000} height={1000} bind:this={outputCanvas} />
-        </div>    
-    </div>
+	<div>
+		<div class="output">
+			<canvas width={1000} height={1000} bind:this={outputCanvas} />
+		</div>
+	</div>
 </div>
 
 <style>
-    .space {
-        display: flex;
-    }
-    .output {
-        padding: 1rem;
-    }
+	.space {
+		display: flex;
+	}
+	.output {
+		padding: 1rem;
+	}
 	canvas {
 		image-rendering: pixelated;
 	}
