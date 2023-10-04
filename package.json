@@ -1,14 +1,14 @@
 {
 	"name": "coco-maskapi",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "BSD-2-Clause",
 	"publishConfig": {
 		"directory": "dist"
 	},
 	"exports": {
 		".": {
-            "types": "./index.d.ts",
-            "default": "./index.js"
+			"types": "./index.d.ts",
+			"default": "./index.js"
 		},
 		"./package.json": "./package.json"
 	},
