@@ -8,7 +8,8 @@ Coco API uses a modified version of [Run Length Encoding (RLE)](https://en.wikip
 
 `coco-maskapi` aims to bring this flavor of mask compression/encoding to web browsers, favoring Canvas [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) as the data source and target.
 
-## Supported Functions
+
+## `maskApi.c` Support Parity Status
 
 | Function      | Status      |
 | ------------- | ----------- |
@@ -33,7 +34,7 @@ pnpm install
 pnpm dev
 ```
 
-## Endpoints
+### Endpoints
 
 - `/`, base example
 - `/worst`, worst case experimentation
