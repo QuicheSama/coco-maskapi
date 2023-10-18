@@ -1,7 +1,5 @@
-/**
- * [height, width]
- */
-type Shape = [number, number];
+type Shape = [height: number, width: number];
+
 const transpose = (imageData: Uint8ClampedArray, currentShape: Shape, depth = 4) => {
 	const transposed = new Uint8ClampedArray(imageData.length);
 

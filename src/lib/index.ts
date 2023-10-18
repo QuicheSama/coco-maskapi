@@ -16,12 +16,12 @@ const encode = (
 
 const decode = (
 	encodedString: string,
-	[width, height]: Shape,
+	[height, width]: Shape,
 	makePixel: (filled: boolean) => Array<number>,
 	depth = 4
 ) => {
 	const rle = rleFromString(encodedString);
-	return transpose(rleDecode(rle, makePixel), [height, width], depth);
+	return transpose(rleDecode(rle, makePixel), [width, height], depth);
 };
 
 export { encode, decode };

@@ -1,8 +1,4 @@
 import { stride } from './stride';
-/**
- *  image's [height, width]
- */
-type ImageDimensions = [number, number];
 
 const rleEncode = (
 	imageData: Uint8ClampedArray,
@@ -11,7 +7,7 @@ const rleEncode = (
 ) => {
 	const counts: Array<number> = [0];
 	stride(imageData, depth)
-		.map((pixelData) => fillCheck(pixelData))
+		.map((pixel) => fillCheck(pixel))
 		.forEach((_, idx, mask) => {
 			if (idx === 0 && !mask[idx]) {
 				counts[counts.length - 1] += 1;
@@ -105,4 +101,3 @@ const rleFromString = (encodedString: string) => {
 };
 
 export { rleEncode, rleDecode, rleToString, rleFromString };
-export type { ImageDimensions };
