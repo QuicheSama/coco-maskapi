@@ -27,6 +27,12 @@ Coco API uses a modified version of [Run Length Encoding (RLE)](https://en.wikip
 | `rleToString` | 🧑‍🏭 WIP      |
 | `rleFrString` | 🧑‍🏭 WIP      |
 
+## WASM via Emscripten
+
+```bash
+emcc -lembind -o ./src/lib/wasm/maskApi.js ./emscripten/maskApi.c -s NO_EXIT_RUNTIME=1 -s "EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']" -s "EXPORTED_FUNCTIONS=['_malloc', '_free', '_rleEncode', '_rleDecode', '_rleToString', '_rleFrString']"
+```
+
 ## Development
 
 ```bash
