@@ -8,7 +8,6 @@ Coco API uses a modified version of [Run Length Encoding (RLE)](https://en.wikip
 
 `coco-maskapi` aims to bring this flavor of mask compression/encoding to web browsers, favoring Canvas [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) as the data source and target.
 
-
 ## `maskApi.c` Support Parity Status
 
 | Function      | Status      |
@@ -30,7 +29,15 @@ Coco API uses a modified version of [Run Length Encoding (RLE)](https://en.wikip
 ## WASM via Emscripten
 
 ```bash
-emcc -lembind -o ./src/lib/wasm/maskApi.js ./emscripten/maskApi.c -s NO_EXIT_RUNTIME=1 -s "EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']" -s "EXPORTED_FUNCTIONS=['_malloc', '_free', '_rleEncode', '_rleDecode', '_rleToString', '_rleFrString']"
+emcc -o ./src/lib/wasm/maskApi.js ./emscripten/maskApi.c \
+    -O1 \
+    -lembind \
+    --closure 1 \
+    -s NO_EXIT_RUNTIME=1 \
+    -s MODULARIZE=1 \
+    -s "EXPORTED_RUNTIME_METHODS=['ccall', 'cwrap']" \
+    -s "EXPORTED_FUNCTIONS=['_malloc', '_free', '_rleEncode', '_rleDecode', '_rleToString', '_rleFrString']" \
+    -s "EXPORT_NAME='initMaskApi'"
 ```
 
 ## Development
